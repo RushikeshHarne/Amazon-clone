@@ -2,13 +2,18 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html
+    destination: /var/www/html/
+    overwrite: true
 hooks:
   BeforeInstall:
-    - location: scripts/install_deps.sh
+    - location: scripts/stop_server.sh
       timeout: 300
       runas: root
-  AfterInstall:
-    - location: scripts/restart_httpd.sh
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server.sh
       timeout: 300
       runas: root

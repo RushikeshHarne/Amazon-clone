@@ -1,9 +1,17 @@
 version: 0.2
 phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo Build started on `date`
   build:
     commands:
-      - echo "Build phase: packaging site"
+      - echo Build phase - No compilation needed for static HTML/CSS
+      - echo Preparing artifacts...
+  post_build:
+    commands:
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
-  discard-paths: no
+  name: amazon-clone-artifacts

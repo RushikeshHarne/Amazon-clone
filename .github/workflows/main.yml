@@ -15,10 +15,10 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}    # add your user access key
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  #add your user secret key
           aws-region: ap-south-1
       - name: Deploy static web
         run: aws s3 sync . s3://740269538373-s3 --delete
-                          # add yout s3 bucket name
+                          # add your s3 bucket name
       

@@ -20,4 +20,5 @@ jobs:
           aws-region: ap-south-1
       - name: Deploy static web
         run: aws s3 sync . s3://740269538373-s3 --delete
+                          # add yout s3 bucket name
       
